@@ -1,11 +1,11 @@
 'use client'
 import { Award } from '@/types/award'
-import { Dispatch, SetStateAction, useState } from 'react'
+import { Dispatch, useState } from 'react'
 import AwardItem from './awardItem'
 
 interface PropsAwardCategory extends Award {
-  selectedWinners: Object[]
-  setSelectedWinners: Dispatch<SetStateAction<Object[]>>
+  setSelectedWinners: Dispatch<any>
+  selectedWinners: any
 }
 
 const AwardCategory = ({
@@ -19,15 +19,7 @@ const AwardCategory = ({
 
   const handleChangeWinners = (awardId: string) => {
     setSelectWinner(awardId)
-
-    const exist = selectedWinners.find(
-      //aqui
-      winner => winner.categoryId === id && winner.awardId !== selectWinner
-    )
-
-    if (exist) return
-
-    setSelectedWinners(prev => [...prev, { categoryId: id, awardId }])
+    setSelectedWinners(new Map(selectedWinners.set(id, awardId)))
   }
 
   return (

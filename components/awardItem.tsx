@@ -16,7 +16,7 @@ const AwardItem = ({
       className={`grid grid-cols-1 grid-rows-1  p-2 text-center min-h-full   ${
         selectWinner === id && 'bg-[#839788] rounded'
       }`}>
-      <div className="relative  border-2 border-[#DEE2E6] hover:scale-105 transition-transform">
+      <div className="relative  border-2 border-[#DEE2E6]">
         <img src={photoUrL} alt={id} />
 
         <div className="absolute z-10 bg-[#212529] w-full   bottom-0 bg-opacity-90 text-left p-2 pr-5 ">
